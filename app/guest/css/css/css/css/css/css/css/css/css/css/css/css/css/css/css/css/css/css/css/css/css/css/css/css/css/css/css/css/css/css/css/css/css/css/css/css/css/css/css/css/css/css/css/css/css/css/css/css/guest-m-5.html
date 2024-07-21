@@ -1,0 +1,105 @@
+﻿<!doctype html><html lang="ru"><head><link rel="style" href="guest-m-6.html"><script type="ab4fea91836f449105799985-text/javascript">/*var _rollbarConfig = {
+      accessToken: "e86569b02b1d4b9ebea9fbbb3a2e0b70",
+      captureUncaught: true,
+      captureUnhandledRejections: true,
+      payload: {
+        environment: "production"
+      }
+    };
+    if (window.location.hostname !== 'localhost') {
+      // Rollbar Snippet
+      !function(r){function e(n){if(o[n])return o[n].exports;var t=o[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,e),t.loaded=!0,t.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var n=o(1),t=o(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.4.6/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,e){this.options=r,this._rollbarOldOnError=null;var o=s++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}function a(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(e);return n(function(){e.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),e.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=e.autoInstrument;return e.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[o]=t,t})()}}function l(r){return n(function(){var e=this,o=Array.prototype.slice.call(arguments,0),n={shim:e,method:r,args:o,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=o(2),s=0,d=o(3),c=function(r,e){return new t(r,e)},p=d.bind(null,c);t.prototype.loadFull=function(r,e,o,t,a){var l=function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,t,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(e);break}}"function"==typeof a&&a(e)},i=!1,s=e.createElement("script"),d=e.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,o||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw e&&("string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e),e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,e){"use strict";function o(r,e,o){if(r){var t;"function"==typeof e._rollbarOldOnError?t=e._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,e._rollbarOldOnError=t);var a=function(){var o=Array.prototype.slice.call(arguments,0);n(r,e,t,o)};a.belongsToShim=o,r.onerror=a}}function n(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),e.handleUncaughtException.apply(e,n),o&&o.apply(r,n)}function t(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){t="[unhandledrejection] error getting `detail` from event"}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,e,o){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(e,r[t].prototype,o)}}function l(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports={captureUncaughtExceptions:o,captureUnhandledRejections:t,wrapGlobals:a}},function(r,e){"use strict";function o(r,e){this.impl=r(e,this),this.options=e,n(o.prototype)}function n(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}o.prototype._swapAndProcessMessages=function(r,e){this.impl=r(this.options);for(var o,n,t;o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=o},function(r,e){"use strict";r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){r=r||{};for(var o,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+      // End Rollbar Snippet
+    }*/
+
+    var params = new URLSearchParams(window.location.search)
+    var hold = localStorage.getItem('hold-time')
+    var now = Math.round((new Date()).getTime()/1000)
+    if (hold && (now - hold) > 86400 * 7) {
+      localStorage.removeItem('campaign')
+    }
+
+    if (!localStorage.getItem('campaign') && params.has('campaign')) {
+      var campaign = params.get('campaign')
+      localStorage.setItem('campaign', campaign)
+      localStorage.setItem('hold-time', now.toString())
+      fetch('/api/v0.1/campaignVisit', {method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({campaignCode: campaign}) })
+              .then(response => response.json())
+              .then(result => {
+                localStorage.setItem('campaignId', result.payload.campaignId)
+                console.log('Success:', result);
+              })
+    }
+
+    const getFromURL = (key='credentials') => {
+      let result
+      const params = new URLSearchParams(window.location.search)
+      if (params.has(key))
+         result = JSON.parse(params.get(key))
+      return result
+    }
+    const preloadBootstrap = async () => {
+      const pathname = window.location.pathname
+
+
+        const credentials = getFromURL() || JSON.parse(localStorage.getItem('credentials'))
+        const params = {pathname, slice: 30}
+
+        if (credentials) {
+          params.email = credentials.email
+          params.password = credentials.password
+        }
+
+      const response = await fetch(
+              '/api/v0.1/fetchBootstrap',
+              {
+                method:'POST',
+                headers: new Headers({'content-type': 'application/json'}),
+                body: JSON.stringify(params)
+              }
+      )
+      const state = await response.json()
+
+      console.log('State preloaded')
+      // First create the event
+      const myEvent = new CustomEvent("bootstrapEvent", {
+        detail: {
+          type: 'bootstrap/fetchBootstrap_DONE',
+          payload: {
+            params,
+            result: state,
+          }
+        }
+      })
+      window['bootstrapEvent'] = myEvent.detail
+      window.dispatchEvent(myEvent)
+    }
+
+    preloadBootstrap()
+
+    // Register the service worker
+    /* if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    }*/</script><meta charset="utf-8"><meta name="theme-color" content="#000000"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link data-n-head="true" rel="icon" type="image/png" sizes="16x16" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../tilda/images/blankfavicon.ico"><link href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../css-1?family=Rubik:400,500&display=swap&subset=cyrillic" rel="stylesheet"><link rel="manifest" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../manifest.json"><link rel="shortcut icon" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../service-images/tild6632-6330-4630-b533-386564353139__favicon_2.ico" type="image/x-icon"><link rel="apple-touch-icon" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../service-images/tild6363-6164-4139-b061-633866656134__smart-eat-2.png"><link rel="apple-touch-icon" sizes="76x76" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../service-images/tild6363-6164-4139-b061-633866656134__smart-eat-2.png"><link rel="apple-touch-icon" sizes="152x152" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../service-images/tild6363-6164-4139-b061-633866656134__smart-eat-2.png"><link rel="apple-touch-startup-image" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../service-images/tild6363-6164-4139-b061-633866656134__smart-eat-2.png"><meta name="msapplication-TileColor" content="#000000"><meta name="msapplication-TileImage" content="/service-images/tild6235-3137-4636-b163-303361643935__smart-eat-2.png"><title>SmartEat | Составить план-питания онлайн</title><meta name="description" content="Профессиональный сервис по составлению планов питания"><style>.popoverContainer{box-shadow:rgba(8,11,14,.06) 0 0 1px 0,rgba(8,11,14,.1) 0 6px 6px -1px}html{overflow-x:hidden;font-size:16px;-webkit-text-size-adjust:none;touch-action:manipulation;overflow-x:hidden;max-width:100%!important}#root{overflow-x:hidden;max-width:100vw!important}@media (hover:none) and (pointer:coarse){body{overflow-y:scroll}}body{overflow-x:hidden;font-size:1rem;color:#161626;font-weight:400;line-height:1.5rem;background-color:#fafafa;-webkit-font-smoothing:antialiased;font-family:Rubik;margin:0;overflow-x:hidden;max-width:100%!important}h1,h2,h3,h4,h5,h6,p{padding:0;margin:0;font-size:1rem;line-height:1.8rem}input{border:none;font-family:inherit}a{margin:0;padding:0;color:#0284fe;cursor:pointer;text-decoration:none}button{border:none}pre{margin:0;padding:1rem;font-size:1rem;line-height:1.8rem;font-family:Rubik,monospace}:focus{outline-width:thin}:focus{outline:0}</style><style>.my-drawer{position:relative;overflow:auto;-webkit-overflow-scrolling:touch}.my-drawer .am-drawer-sidebar{background-color:#fff;overflow:auto;-webkit-overflow-scrolling:touch}.my-drawer .am-drawer-sidebar .am-list{width:300px;padding:0}</style></head><body><script type="ab4fea91836f449105799985-text/javascript">var getScript = (function(head) {
+      return function(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        head.appendChild(script);
+      }
+    }(document.getElementsByTagName('head')[0]));
+    window.onload = function() {
+      setTimeout(
+        () => getScript('https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js'),
+        500
+      )
+    }</script><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="ab4fea91836f449105799985-text/javascript" src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../mobile.js?e5012b4e606090df33dd"></script><script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="ab4fea91836f449105799985-|49" defer=""></script></body></html>
